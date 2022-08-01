@@ -17,7 +17,6 @@ jobs:
           node-version: 16.x
           registry-url: "https://registry.npmjs.org"
       - name: Create dot env file
-      - shell: bash
         run: |
           touch .env
           echo "${{ secrets.ENV_FILE }}" >> .env
