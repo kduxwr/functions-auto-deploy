@@ -23,6 +23,6 @@ jobs:
       # - name: Build
       #   run: npm run build
       #   # ↑ buildが違うコマンドなら、適宜変更して下さい
-      - name: deploy to Firebase Hosting
+      - name: deploy to Firebase Functions
         run: |
-          npm run deploy --token=${{ secrets.FIREBASE_TOKEN }}
+          firebase deploy --only functions --token=${{ secrets.FIREBASE_TOKEN }}
