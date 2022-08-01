@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  FunctionsDeploy:
+    name: FrontDeploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: npm install
+      # - name: Build
+      #   run: npm run build
+      #   # ↑ buildが違うコマンドなら、適宜変更して下さい
+      - name: deploy to Firebase Hosting
+        run: |
+          npm run deploy --token=${{ secrets.FIREBASE_TOKEN }}
