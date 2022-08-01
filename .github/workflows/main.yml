@@ -13,11 +13,13 @@ jobs:
         uses: actions/checkout@master
       - name: setup Node
         uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-          registry-url: "https://registry.npmjs.org"
+          with:
+            node-version: 16.x
+            registry-url: "https://registry.npmjs.org"
       - name: Install Dependencies
-        run: npm install
+         run: |
+            npm install
+            npm install -g firebase-tools
       # - name: Build
       #   run: npm run build
       #   # ↑ buildが違うコマンドなら、適宜変更して下さい
