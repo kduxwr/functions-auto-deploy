@@ -18,6 +18,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Create dot env file
         run: |
+          cd functions 
           touch .env
           echo "${{ secrets.ENV_FILE }}" >> .env
       - name: Install Dependencies
